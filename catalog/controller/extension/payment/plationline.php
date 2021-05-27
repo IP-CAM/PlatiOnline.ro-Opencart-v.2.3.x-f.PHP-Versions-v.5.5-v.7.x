@@ -4,7 +4,7 @@ error_reporting(0);
 ini_set('display_errors', 0);
 class ControllerExtensionPaymentPlatiOnline extends Controller {
 	public function index() {
-    	$data['button_confirm'] = $this->language->get('button_confirm');
+		$data['button_confirm'] = $this->language->get('button_confirm');
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/plationline.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/payment/plationline.tpl', $data);
 		} else {
@@ -60,7 +60,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						echo '</body>' . "\n";
 						echo '</html>' . "\n";
 						exit();
-					break;
+						break;
 					case '13':
 						//	on hold
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_on_hold_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>', TRUE);
@@ -76,7 +76,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
 						}
-					break;
+						break;
 					case '8':
 						//	refuzata
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_decline_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>',TRUE);
@@ -101,7 +101,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
 						}
-					break;
+						break;
 					case '10':
 					case '16':
 					case '17':
@@ -123,9 +123,9 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
 						}
-					break;
+						break;
 				}
-			break;
+				break;
 			case 'POST_S2S_PO_PAGE':
 				$authorization_response = $po->auth_response($_POST['F_Relay_Message'], $_POST['F_Crypt_Message']);
 				$X_RESPONSE_CODE = $po->get_xml_tag_content($authorization_response,'X_RESPONSE_CODE');
@@ -149,21 +149,21 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 								$this->db->query("UPDATE " . DB_PREFIX . "product_option_value SET quantity = (quantity - " . (int)$order_product['quantity'] . ") WHERE product_option_value_id = '" . (int)$option['product_option_value_id'] . "' AND subtract = '1'");
 							}
 						}
-					break;
+						break;
 					case '13':
 						//	on hold
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_on_hold_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>', TRUE);
-					break;
+						break;
 					case '8':
 						//	refuzata
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_decline_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>',TRUE);
-					break;
+						break;
 					case '10':
 					case '16':
 					case '17':
 						//	eroare
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_error_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>',TRUE);
-					break;
+						break;
 					default:
 						$raspuns_procesat = false;
 				}
@@ -175,7 +175,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 				else {
 					header('PO_Transaction_Response_Processing: retry');
 				}
-			break;
+				break;
 			case 'POST_S2S_MT_PAGE':
 				$authorization_response = $po->auth_response($_POST['F_Relay_Message'], $_POST['F_Crypt_Message']);
 				$X_RESPONSE_CODE = $po->get_xml_tag_content($authorization_response,'X_RESPONSE_CODE');
@@ -210,7 +210,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						echo '</body>' . "\n";
 						echo '</html>' . "\n";
 						exit();
-					break;
+						break;
 					case '13':
 						//	on hold
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_on_hold_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>', TRUE);
@@ -226,7 +226,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
 						}
-					break;
+						break;
 					case '8':
 						//	refuzata
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_decline_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>',TRUE);
@@ -251,7 +251,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
 						}
-					break;
+						break;
 					case '10':
 					case '16':
 					case '17':
@@ -270,7 +270,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
 						}
-					break;
+						break;
 					default:
 						$raspuns_procesat = false;
 				}
@@ -282,7 +282,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 				else {
 					header('PO_Transaction_Response_Processing: retry');
 				}
-			break;
+				break;
 
 			case 'SOAP_PO_PAGE':
 				$soap_xml = file_get_contents("php://input");
@@ -309,21 +309,21 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 								$this->db->query("UPDATE " . DB_PREFIX . "product_option_value SET quantity = (quantity - " . (int)$order_product['quantity'] . ") WHERE product_option_value_id = '" . (int)$option['product_option_value_id'] . "' AND subtract = '1'");
 							}
 						}
-					break;
+						break;
 					case '13':
 						//	on hold
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_on_hold_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>', TRUE);
-					break;
+						break;
 					case '8':
 						//	refuzata
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_decline_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>',TRUE);
-					break;
+						break;
 					case '10':
 					case '16':
 					case '17':
 						//	eroare
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_error_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>',TRUE);
-					break;
+						break;
 					default:
 						$raspuns_procesat = false;
 				}
@@ -335,7 +335,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 				else {
 					header('PO_Transaction_Response_Processing: retry');
 				}
-			break;
+				break;
 			case 'SOAP_MT_PAGE':
 				$soap_xml = file_get_contents("php://input");
 				$soap_parsed = $po->parse_soap_response($soap_xml);
@@ -371,7 +371,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						echo '</body>' . "\n";
 						echo '</html>' . "\n";
 						exit();
-					break;
+						break;
 					case '13':
 						//	on hold
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_on_hold_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>', TRUE);
@@ -387,7 +387,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
 						}
-					break;
+						break;
 					case '8':
 						//	refuzata
 						$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('plationline_order_status_decline_id'), 'PlatiOnline.ro Tranzaction ID: <strong>' . $trans_id . '</strong>',TRUE);
@@ -412,7 +412,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
 						}
-					break;
+						break;
 					case '10':
 					case '16':
 					case '17':
@@ -431,7 +431,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						} else {
 							return $this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
 						}
-					break;
+						break;
 					default:
 						$raspuns_procesat = false;
 				}
@@ -443,7 +443,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 				else {
 					header('PO_Transaction_Response_Processing: retry');
 				}
-			break;
+				break;
 		}
 	}
 
@@ -581,7 +581,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 
 					echo $raspuns_xml;
 				}
-			break;
+				break;
 		}
 	}
 
@@ -596,9 +596,9 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 		$f_request['f_amount'] 		 = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);
 		$f_request['f_currency'] 	 = $order_info['currency_code'];
 
-        if (strtolower($order_info['currency_code']) == 'lei') {
-            $f_request['f_currency'] = 'RON';
-        }
+		if (strtolower($order_info['currency_code']) == 'lei') {
+			$f_request['f_currency'] = 'RON';
+		}
 
 		$f_request['f_language'] = substr($this->session->data['language'],0,2);
 
@@ -718,6 +718,19 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 		}
 
 		foreach ($totals as $t) {
+			if ($t['code'] == 'tax') {
+				$item = array();
+				$item['prodid'] 	 = $t['code'];
+				$item['name'] 		 = substr(strip_tags( html_entity_decode( $t['title'], ENT_QUOTES ) ),0,250);
+				$item['description'] = '';
+				$item['qty'] 		 = 1;
+				$item['itemprice'] 	 = $this->currency->format($t['value'], $order_info['currency_code'], $order_info['currency_value'], false);
+				$item['vat'] 		 = 0;
+				$item['stamp'] 		 = date('Y-m-d');
+				$item['prodtype_id'] = 0;
+				$f_request['f_order_cart'][] = $item;
+			}
+
 			if ($t['code'] == 'coupon') {
 				$coupon1 = array();
 				$coupon1['key'] 		= $t['code'];
