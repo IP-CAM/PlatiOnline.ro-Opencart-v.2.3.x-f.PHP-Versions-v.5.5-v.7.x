@@ -72,10 +72,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['text_failure_wait'] 	= sprintf($this->language->get('text_failure_wait'), $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL'));
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
 						}
+						return;
 						break;
 					case '8':
 						//	refuzata
@@ -97,10 +98,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['continue'] = $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL');
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
 						}
+						return;
 						break;
 					case '10':
 					case '16':
@@ -119,10 +121,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['continue'] = $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL');
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
 						}
+						return;
 						break;
 				}
 				break;
@@ -222,10 +225,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['text_failure_wait'] 	= sprintf($this->language->get('text_failure_wait'), $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL'));
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
 						}
+						return;
 						break;
 					case '8':
 						//	refuzata
@@ -247,10 +251,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['continue'] = $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL');
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
 						}
+						return;
 						break;
 					case '10':
 					case '16':
@@ -266,10 +271,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['continue'] = $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL');
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
 						}
+						return;
 						break;
 					default:
 						$raspuns_procesat = false;
@@ -383,10 +389,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['text_failure_wait'] 	= sprintf($this->language->get('text_failure_wait'), $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL'));
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_on_hold.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_on_hold.tpl',$data));
 						}
+						return;
 						break;
 					case '8':
 						//	refuzata
@@ -408,10 +415,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['continue'] = $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL');
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_failure.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_failure.tpl',$data));
 						}
+						return;
 						break;
 					case '10':
 					case '16':
@@ -427,10 +435,11 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 						$data['continue'] = $this->url->link('account/order/info', 'order_id='.$order_id, 'SSL');
 
 						if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl')) {
-							return $this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl',$data));
+							$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/extension/payment/plationline_error.tpl',$data));
 						} else {
-							return $this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
+							$this->response->setOutput($this->load->view('extension/payment/plationline_error.tpl',$data));
 						}
+						return;
 						break;
 					default:
 						$raspuns_procesat = false;
@@ -787,6 +796,7 @@ class ControllerExtensionPaymentPlatiOnline extends Controller {
 		$url_redirect = $po->auth($f_request, 2);
 		$this->model_checkout_order->addOrderHistory($this->session->data['order_id'], $this->config->get('plationline_order_status_pending_id'));
 		header('Set-Cookie:'. $this->config->get('session_name').'='. $this->session->getId(). '; SameSite = None; Secure');
+		header('Set-Cookie:default='. $this->session->getId(). '; SameSite = None; Secure');
 		if (isset($this->session->data['order_id'])) {
 			$this->cart->clear();
 			unset($this->session->data['shipping_method']);
